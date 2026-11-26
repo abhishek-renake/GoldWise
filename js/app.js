@@ -1,35 +1,60 @@
-// GoldWise Sample Gold Prices
 const goldPrices = {
     24: 13000,
     22: 11917,
     18: 9750
 };
 
-const investments = [];
+// Load saved investments
+let investments = [];
 
-// Currency Formatter
+try {
+    const savedData = JSON.parse(
+        localStorage.getItem("goldwiseInvestments")
+    );
+
+    investments = Array.isArray(savedData) ? savedData : [];
+} catch (error) {
+    investments = [];
+}
+
+// Currency formatter
 function formatCurrency(value) {
     return "₹" + value.toLocaleString("en-IN", {
         maximumFractionDigits: 2
     });
 }
 
-// Gold Value Calculator
+// Save investments
+function saveInvestments() {
+    localStorage.setItem(
+        "goldwiseInvestments",
+        JSON.stringify(investments)
+    );
+}
+
+// Gold calculator
 function calculateGold() {
-    const weight = parseFloat(document.getElementById("weight").value);
-    const purity = parseInt(document.getElementById("purity").value);
+    const weight = parseFloat(
+        document.getElementById("weight").value
+    );
+
+    const purity = parseInt(
+        document.getElementById("purity").value
+    );
+
     const result = document.getElementById("result");
 
     if (!Number.isFinite(weight) || weight <= 0) {
-        result.textContent = "Please enter a valid gold weight.";
+        result.textContent = "Please enter a valid weight.";
         return;
     }
 
-    result.textContent = "Estimated Value: " +
+    result.textContent =
+        "Estimated Value: " +
         formatCurrency(weight * goldPrices[purity]);
 }
 
-// Add Investment
+// Add investment
 function addInvestment() {
     const weight = parseFloat(
         document.getElementById("purchaseWeight").value
@@ -43,18 +68,24 @@ function addInvestment() {
         document.getElementById("purchasePrice").value
     );
 
-    if (!Number.isFinite(weight) || weight <= 0 ||
+    if (
+        !Number.isFinite(weight) || weight <= 0 ||
         !Number.isFinite(purchasePrice) || purchasePrice <= 0 ||
-        !goldPrices[purity]) {
+        !goldPrices[purity]
+    ) {
         alert("Please enter valid investment details.");
         return;
     }
 
     investments.push({
-        weight: weight,
-        purity: purity,
-        purchasePrice: purchasePrice
+        id: Date.now() + Math.random(),
+        weight,
+        purity,
+        purchasePrice,
+        date: new Date().toLocaleDateString("en-IN")
     });
+
+    saveInvestments();
 
     document.getElementById("purchaseWeight").value = "";
     document.getElementById("purchasePrice").value = "";
@@ -62,13 +93,22 @@ function addInvestment() {
     updatePortfolio();
 }
 
-// Update Investment Portfolio
+// Delete investment
+function deleteInvestment(id) {
+    investments = investments.filter(
+        item => item.id !== id
+    );
+
+    saveInvestments();
+    updatePortfolio();
+}
+
+// Update portfolio
 function updatePortfolio() {
     let totalInvestment = 0;
     let currentValue = 0;
 
     const list = document.getElementById("investmentList");
-
     list.innerHTML = "";
 
     investments.forEach((item, index) => {
@@ -85,7 +125,7 @@ function updatePortfolio() {
 
         const details = document.createElement("span");
         details.textContent =
-            `${index + 1}. ${item.weight}g of ${item.purity}K Gold`;
+            `${index + 1}. ${item.weight}g ${item.purity}K Gold (${item.date})`;
 
         const amounts = document.createElement("span");
         amounts.textContent =
@@ -96,7 +136,13 @@ function updatePortfolio() {
         performance.textContent =
             (difference >= 0 ? "+" : "") + formatCurrency(difference);
 
-        row.append(details, amounts, performance);
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Delete";
+        removeButton.addEventListener("click", () => {
+            deleteInvestment(item.id);
+        });
+
+        row.append(details, amounts, performance, removeButton);
         list.appendChild(row);
     });
 
@@ -117,10 +163,11 @@ function updatePortfolio() {
     profitElement.textContent =
         (profitLoss >= 0 ? "+" : "") + formatCurrency(profitLoss);
 
-    profitElement.className = profitLoss >= 0 ? "profit" : "loss";
+    profitElement.className =
+        profitLoss >= 0 ? "profit" : "loss";
 }
 
-// Gold Price Analytics Chart
+// Gold price chart
 const chartCanvas = document.getElementById("goldChart");
 
 if (chartCanvas && typeof Chart !== "undefined") {
@@ -164,5 +211,8 @@ if (chartCanvas && typeof Chart !== "undefined") {
         }
     });
 }
+
+// Restore saved investments on page load
+updatePortfolio();
 
 console.log("GoldWise initialized successfully!");
