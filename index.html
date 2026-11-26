@@ -18,7 +18,7 @@
         <a href="#calculator">Calculator</a>
         <a href="#portfolio">Portfolio</a>
     </nav>
-    <a href="#portfolio" class="login-btn">Get Started</a>
+    <a href="#portfolio" class="login-btn">My Portfolio</a>
 </header>
 
 <main>
@@ -27,48 +27,71 @@
     <p class="tagline">SMART GOLD INTELLIGENCE PLATFORM</p>
     <h1>Invest in Gold.<br><span>Invest with Confidence.</span></h1>
     <p class="description">
-        Track gold prices, calculate investments and understand
+        Track gold prices, analyse investments and understand
         the gold market with GoldWise.
     </p>
-    <a href="#prices" class="explore-btn">Explore Gold Prices →</a>
+    <a href="#analytics" class="explore-btn">Explore Analytics →</a>
 </section>
 
 <section id="prices" class="prices">
     <h2>Gold Market Overview</h2>
-    <p class="subtitle">Illustrative sample prices – not live market data</p>
+    <p class="subtitle">Illustrative sample prices · INR per gram</p>
 
     <div class="price-container">
         <div class="price-card">
             <h3>24K Gold</h3>
             <h2>₹13,000</h2>
-            <p>Per Gram · Sample</p>
+            <p>Pure Gold · Sample</p>
         </div>
+
         <div class="price-card">
             <h3>22K Gold</h3>
             <h2>₹11,917</h2>
-            <p>Per Gram · Sample</p>
+            <p>Standard Jewellery · Sample</p>
         </div>
+
         <div class="price-card">
             <h3>18K Gold</h3>
             <h2>₹9,750</h2>
-            <p>Per Gram · Sample</p>
+            <p>Gold Alloy · Sample</p>
         </div>
     </div>
 </section>
 
-<section class="analytics" id="analytics">
-    <h2>Gold Price Analytics</h2>
-    <p>Illustrative historical price trends</p>
+<section id="analytics" class="analytics">
+    <h2>Gold Market Analytics</h2>
+    <p class="subtitle">Illustrative historical price movements</p>
+
     <div class="chart-container">
         <canvas id="goldChart"></canvas>
+    </div>
+
+    <div class="market-grid">
+        <div class="market-card">
+            <span>24K Market Trend</span>
+            <h3>Upward</h3>
+            <p>Based on sample chart data</p>
+        </div>
+
+        <div class="market-card">
+            <span>Market Category</span>
+            <h3>Gold</h3>
+            <p>Precious metal</p>
+        </div>
+
+        <div class="market-card">
+            <span>Data Status</span>
+            <h3>Simulated</h3>
+            <p>Not a live market feed</p>
+        </div>
     </div>
 </section>
 
 <section id="calculator" class="calculator">
     <h2>Gold Value Calculator</h2>
-    <p>Calculate the estimated value of your gold.</p>
+    <p>Estimate the value of your gold.</p>
 
-    <input type="number" id="weight" placeholder="Weight in grams">
+    <input type="number" id="weight" placeholder="Weight in grams" min="0.01" step="any">
 
     <select id="purity">
         <option value="24">24K Gold</option>
@@ -81,11 +104,11 @@
 </section>
 
 <section id="portfolio" class="portfolio">
-    <h2>Gold Investment Tracker</h2>
-    <p>Monitor your gold investment performance.</p>
+    <h2>Investment Portfolio</h2>
+    <p>Manage and analyse your gold investments.</p>
 
     <div class="portfolio-form">
-        <input type="number" id="purchaseWeight" placeholder="Gold weight (grams)">
+        <input type="number" id="purchaseWeight" placeholder="Weight in grams" min="0.01" step="any">
 
         <select id="purchasePurity">
             <option value="24">24K Gold</option>
@@ -93,7 +116,7 @@
             <option value="18">18K Gold</option>
         </select>
 
-        <input type="number" id="purchasePrice" placeholder="Purchase price per gram (₹)">
+        <input type="number" id="purchasePrice" placeholder="Purchase price per gram (₹)" min="0.01" step="any">
 
         <button onclick="addInvestment()">Add Investment</button>
     </div>
@@ -103,8 +126,76 @@
             <h3>Total Investment</h3>
             <h2 id="totalInvestment">₹0</h2>
         </div>
+
         <div>
             <h3>Current Value</h3>
             <h2 id="currentValue">₹0</h2>
         </div>
-       
+
+        <div>
+            <h3>Profit / Loss</h3>
+            <h2 id="profitLoss">₹0</h2>
+        </div>
+
+        <div>
+            <h3>Total Gold Holdings</h3>
+            <h2 id="totalWeight">0 g</h2>
+        </div>
+    </div>
+
+    <div class="portfolio-charts">
+        <div class="chart-box">
+            <h3>Investment Distribution</h3>
+            <div class="small-chart">
+                <canvas id="purityChart"></canvas>
+            </div>
+        </div>
+
+        <div class="chart-box">
+            <h3>Portfolio Value Overview</h3>
+            <div class="small-chart">
+                <canvas id="portfolioChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="investment-list">
+        <h3>Investment History</h3>
+        <div id="investmentList">No investments added yet.</div>
+    </div>
+</section>
+
+<section id="insights" class="insights">
+    <h2>GoldWise Intelligence</h2>
+
+    <div class="insight-container">
+        <div>
+            📊
+            <h3>Market Analytics</h3>
+            <p>Visualise illustrative gold price movements.</p>
+        </div>
+
+        <div>
+            💰
+            <h3>Portfolio Tracking</h3>
+            <p>Monitor investments and estimated returns.</p>
+        </div>
+
+        <div>
+            🧮
+            <h3>Smart Calculator</h3>
+            <p>Calculate gold value by purity and weight.</p>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 GoldWise | Smart Gold Intelligence Platform</p>
+    <p>Sample data for educational demonstration only. Not financial advice.</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
