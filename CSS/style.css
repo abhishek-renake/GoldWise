@@ -13,7 +13,7 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     background: #090909;
-    color: #ffffff;
+    color: white;
 }
 
 header {
@@ -27,7 +27,6 @@ header {
 .logo {
     font-size: 27px;
     font-weight: 800;
-    color: #ffffff;
 }
 
 .logo span,
@@ -37,14 +36,13 @@ header {
 
 nav {
     display: flex;
-    gap: 30px;
+    gap: 25px;
 }
 
 nav a {
     color: #aaa;
     text-decoration: none;
-    font-size: 14px;
-    transition: 0.3s;
+    font-size: 13px;
 }
 
 nav a:hover {
@@ -56,17 +54,15 @@ nav a:hover {
     background: #d4af37;
     color: #090909;
     padding: 12px 22px;
-    border: none;
     border-radius: 6px;
-    font-weight: 700;
     text-decoration: none;
-    cursor: pointer;
+    font-weight: 700;
 }
 
 .hero {
     text-align: center;
     padding: 110px 20px;
-    background: radial-gradient(circle, #28200b 0%, #090909 65%);
+    background: radial-gradient(circle, #28200b, #090909 65%);
 }
 
 .tagline {
@@ -90,7 +86,8 @@ nav a:hover {
 
 .prices,
 .calculator,
-.insights {
+.insights,
+.analytics {
     padding: 75px 8%;
     text-align: center;
 }
@@ -100,7 +97,8 @@ section h2 {
     margin-bottom: 15px;
 }
 
-.subtitle {
+.subtitle,
+.analytics > p {
     color: #888;
     margin-bottom: 35px;
 }
@@ -145,8 +143,18 @@ section h2 {
     font-size: 13px;
 }
 
+.chart-container {
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 950px;
+    margin: auto;
+    height: 350px;
+}
+
 .calculator {
-    background: #111111;
+    background: #111;
 }
 
 .calculator p {
@@ -203,7 +211,6 @@ footer {
     nav {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
     }
 
     .price-container,
