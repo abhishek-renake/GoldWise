@@ -6,9 +6,7 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Inter', sans-serif;
@@ -29,8 +27,7 @@ header {
     font-weight: 800;
 }
 
-.logo span,
-.hero span {
+.logo span, .hero span {
     color: #d4af37;
 }
 
@@ -45,12 +42,9 @@ nav a {
     font-size: 13px;
 }
 
-nav a:hover {
-    color: #d4af37;
-}
+nav a:hover { color: #d4af37; }
 
-.login-btn,
-.explore-btn {
+.login-btn, .explore-btn {
     background: #d4af37;
     color: #090909;
     padding: 12px 22px;
@@ -84,10 +78,7 @@ nav a:hover {
     margin-bottom: 35px;
 }
 
-.prices,
-.calculator,
-.insights,
-.analytics {
+.prices, .calculator, .insights, .analytics, .portfolio {
     padding: 75px 8%;
     text-align: center;
 }
@@ -97,22 +88,20 @@ section h2 {
     margin-bottom: 15px;
 }
 
-.subtitle,
-.analytics > p {
+.subtitle, .analytics > p {
     color: #888;
     margin-bottom: 35px;
 }
 
-.price-container,
-.insight-container {
+.price-container, .insight-container, .portfolio-summary {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
     margin-top: 35px;
 }
 
-.price-card,
-.insight-container div {
+.price-card, .insight-container div,
+.portfolio-summary div {
     background: #151515;
     padding: 35px 20px;
     border: 1px solid #292929;
@@ -120,24 +109,19 @@ section h2 {
     transition: 0.3s;
 }
 
-.price-card:hover,
-.insight-container div:hover {
+.price-card:hover, .insight-container div:hover {
     border-color: #d4af37;
     transform: translateY(-6px);
 }
 
-.price-card h3 {
-    color: #aaa;
-    margin-bottom: 20px;
-}
+.price-card h3 { color: #aaa; margin-bottom: 20px; }
 
 .price-card h2 {
     color: #d4af37;
     font-size: 28px;
 }
 
-.price-card p,
-.insight-container p {
+.price-card p, .insight-container p {
     color: #888;
     margin-top: 12px;
     font-size: 13px;
@@ -153,17 +137,14 @@ section h2 {
     height: 350px;
 }
 
-.calculator {
-    background: #111;
-}
+.calculator { background: #111; }
 
-.calculator p {
+.calculator p, .portfolio > p {
     color: #aaa;
     margin: 15px 0 30px;
 }
 
-input,
-select {
+input, select {
     padding: 15px;
     margin: 8px;
     background: #202020;
@@ -174,15 +155,19 @@ select {
     max-width: 90%;
 }
 
-.calculator button {
-    display: block;
-    margin: 20px auto;
+button {
     padding: 14px 30px;
     background: #d4af37;
+    color: #090909;
     border: none;
     border-radius: 6px;
     font-weight: 700;
     cursor: pointer;
+}
+
+.calculator button {
+    display: block;
+    margin: 20px auto;
 }
 
 #result {
@@ -190,9 +175,54 @@ select {
     margin-top: 25px;
 }
 
-.insight-container h3 {
-    margin-top: 15px;
+.portfolio-form {
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 850px;
+    margin: auto;
 }
+
+.portfolio-form button {
+    margin: 10px;
+}
+
+.portfolio-summary h3 {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.portfolio-summary h2 {
+    color: #d4af37;
+}
+
+.investment-list {
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 35px;
+    overflow-x: auto;
+}
+
+.investment-list h3 {
+    margin-bottom: 20px;
+}
+
+.investment-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    color: #ccc;
+    text-align: left;
+}
+
+.profit { color: #4ade80; }
+.loss { color: #f87171; }
 
 footer {
     padding: 25px;
@@ -200,6 +230,7 @@ footer {
     border-top: 1px solid #292929;
     color: #777;
     font-size: 13px;
+    line-height: 2;
 }
 
 @media(max-width: 768px) {
@@ -213,12 +244,14 @@ footer {
         justify-content: center;
     }
 
-    .price-container,
-    .insight-container {
+    .price-container, .insight-container,
+    .portfolio-summary {
         grid-template-columns: 1fr;
     }
 
-    .hero {
-        padding: 75px 15px;
+    .hero { padding: 75px 15px; }
+
+    .investment-row {
+        flex-direction: column;
     }
 }
