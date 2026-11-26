@@ -54,7 +54,8 @@ GoldWise/
 
 ## 🌐 Live Demo
 
-https://legit18v.github.io/GoldWise/
+https://github.com/abhishek-renake/GoldWise
+
 
 ## 🔮 Future Enhancements
 
