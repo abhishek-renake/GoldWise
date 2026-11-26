@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoldWise | Smart Gold Intelligence</title>
+
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
 <header>
@@ -14,11 +17,12 @@
     <nav>
         <a href="#">Dashboard</a>
         <a href="#prices">Gold Prices</a>
+        <a href="#analytics">Analytics</a>
         <a href="#calculator">Calculator</a>
         <a href="#insights">Insights</a>
     </nav>
 
-    <button class="login-btn">Get Started</button>
+    <a href="#calculator" class="login-btn">Get Started</a>
 </header>
 
 <main>
@@ -38,7 +42,6 @@
 </section>
 
 <section id="prices" class="prices">
-
     <h2>Gold Market Overview</h2>
     <p class="subtitle">Illustrative sample prices – not live market data</p>
 
@@ -65,12 +68,20 @@
     </div>
 </section>
 
+<section class="analytics" id="analytics">
+    <h2>Gold Price Analytics</h2>
+    <p>Illustrative historical price trends</p>
+
+    <div class="chart-container">
+        <canvas id="goldChart"></canvas>
+    </div>
+</section>
+
 <section id="calculator" class="calculator">
     <h2>Gold Value Calculator</h2>
     <p>Calculate the estimated value of your gold.</p>
 
-    <input type="number" id="weight"
-        placeholder="Enter weight in grams">
+    <input type="number" id="weight" placeholder="Enter weight in grams">
 
     <select id="purity">
         <option value="24">24K Gold</option>
@@ -87,27 +98,11 @@
     <h2>Why GoldWise?</h2>
 
     <div class="insight-container">
-        <div>📊<h3>Price Analytics</h3>
+        <div>
+            📊
+            <h3>Price Analytics</h3>
             <p>Understand gold price movements.</p>
         </div>
 
-        <div>💰<h3>Investment Tracking</h3>
-            <p>Monitor your gold investments.</p>
-        </div>
-
-        <div>🧮<h3>Smart Calculator</h3>
-            <p>Estimate gold value easily.</p>
-        </div>
-    </div>
-</section>
-
-</main>
-
-<footer>
-    <p>© 2026 GoldWise. Smart Gold Intelligence Platform.</p>
-</footer>
-
-<script src="js/app.js"></script>
-
-</body>
-</html>
+        <div>
+            💰
