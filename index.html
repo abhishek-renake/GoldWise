@@ -8,36 +8,29 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
 
 <header>
     <div class="logo">Gold<span>Wise.</span></div>
-
     <nav>
         <a href="#">Dashboard</a>
         <a href="#prices">Gold Prices</a>
         <a href="#analytics">Analytics</a>
         <a href="#calculator">Calculator</a>
-        <a href="#insights">Insights</a>
+        <a href="#portfolio">Portfolio</a>
     </nav>
-
-    <a href="#calculator" class="login-btn">Get Started</a>
+    <a href="#portfolio" class="login-btn">Get Started</a>
 </header>
 
 <main>
 
 <section class="hero">
     <p class="tagline">SMART GOLD INTELLIGENCE PLATFORM</p>
-
-    <h1>Invest in Gold.<br>
-    <span>Invest with Confidence.</span></h1>
-
+    <h1>Invest in Gold.<br><span>Invest with Confidence.</span></h1>
     <p class="description">
-        Track gold prices, calculate investments and
-        understand the gold market with GoldWise.
+        Track gold prices, calculate investments and understand
+        the gold market with GoldWise.
     </p>
-
     <a href="#prices" class="explore-btn">Explore Gold Prices →</a>
 </section>
 
@@ -46,7 +39,6 @@
     <p class="subtitle">Illustrative sample prices – not live market data</p>
 
     <div class="price-container">
-
         <div class="price-card">
             <h3>24K Gold</h3>
             <h2>₹13,000</h2>
@@ -64,14 +56,12 @@
             <h2>₹9,750</h2>
             <p>Per Gram · Sample</p>
         </div>
-
     </div>
 </section>
 
 <section class="analytics" id="analytics">
     <h2>Gold Price Analytics</h2>
     <p>Illustrative historical price trends</p>
-
     <div class="chart-container">
         <canvas id="goldChart"></canvas>
     </div>
@@ -81,7 +71,7 @@
     <h2>Gold Value Calculator</h2>
     <p>Calculate the estimated value of your gold.</p>
 
-    <input type="number" id="weight" placeholder="Enter weight in grams">
+    <input type="number" id="weight" placeholder="Weight in grams">
 
     <select id="purity">
         <option value="24">24K Gold</option>
@@ -90,19 +80,78 @@
     </select>
 
     <button onclick="calculateGold()">Calculate Value</button>
-
     <h3 id="result">Estimated Value: ₹0</h3>
+</section>
+
+<section id="portfolio" class="portfolio">
+    <h2>Gold Investment Tracker</h2>
+    <p>Monitor your gold investment performance.</p>
+
+    <div class="portfolio-form">
+        <input type="number" id="purchaseWeight" placeholder="Gold weight (grams)">
+
+        <select id="purchasePurity">
+            <option value="24">24K Gold</option>
+            <option value="22">22K Gold</option>
+            <option value="18">18K Gold</option>
+        </select>
+
+        <input type="number" id="purchasePrice" placeholder="Purchase price per gram (₹)">
+
+        <button onclick="addInvestment()">Add Investment</button>
+    </div>
+
+    <div class="portfolio-summary">
+        <div>
+            <h3>Total Investment</h3>
+            <h2 id="totalInvestment">₹0</h2>
+        </div>
+
+        <div>
+            <h3>Current Value</h3>
+            <h2 id="currentValue">₹0</h2>
+        </div>
+
+        <div>
+            <h3>Profit / Loss</h3>
+            <h2 id="profitLoss">₹0</h2>
+        </div>
+    </div>
+
+    <div class="investment-list">
+        <h3>Your Gold Holdings</h3>
+        <div id="investmentList">No investments added yet.</div>
+    </div>
 </section>
 
 <section id="insights" class="insights">
     <h2>Why GoldWise?</h2>
 
     <div class="insight-container">
-        <div>
-            📊
+        <div>📊
             <h3>Price Analytics</h3>
             <p>Understand gold price movements.</p>
         </div>
 
-        <div>
-            💰
+        <div>💰
+            <h3>Investment Tracking</h3>
+            <p>Monitor your investments.</p>
+        </div>
+
+        <div>🧮
+            <h3>Smart Calculator</h3>
+            <p>Estimate gold value easily.</p>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 GoldWise. Smart Gold Intelligence Platform.</p>
+    <p>Educational estimates only. Not financial advice.</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
