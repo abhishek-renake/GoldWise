@@ -6,7 +6,9 @@
     box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Inter', sans-serif;
@@ -18,8 +20,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 8%;
-    border-bottom: 1px solid #252525;
+    padding: 24px 8%;
+    border-bottom: 1px solid #292929;
+    position: sticky;
+    top: 0;
+    background: rgba(9,9,9,0.96);
+    z-index: 10;
 }
 
 .logo {
@@ -27,11 +33,14 @@ header {
     font-weight: 800;
 }
 
-.logo span, .hero span { color: #d4af37; }
+.logo span,
+.hero span {
+    color: #d4af37;
+}
 
 nav {
     display: flex;
-    gap: 25px;
+    gap: 24px;
 }
 
 nav a {
@@ -40,9 +49,12 @@ nav a {
     font-size: 13px;
 }
 
-nav a:hover { color: #d4af37; }
+nav a:hover {
+    color: #d4af37;
+}
 
-.login-btn, .explore-btn {
+.login-btn,
+.explore-btn {
     background: #d4af37;
     color: #090909;
     padding: 12px 22px;
@@ -53,8 +65,8 @@ nav a:hover { color: #d4af37; }
 
 .hero {
     text-align: center;
-    padding: 110px 20px;
-    background: radial-gradient(circle, #28200b, #090909 65%);
+    padding: 115px 20px;
+    background: radial-gradient(circle, #30250c, #090909 70%);
 }
 
 .tagline {
@@ -76,7 +88,11 @@ nav a:hover { color: #d4af37; }
     margin-bottom: 35px;
 }
 
-.prices, .calculator, .insights, .analytics, .portfolio {
+.prices,
+.analytics,
+.calculator,
+.portfolio,
+.insights {
     padding: 75px 8%;
     text-align: center;
 }
@@ -86,39 +102,50 @@ section h2 {
     margin-bottom: 15px;
 }
 
-.subtitle, .analytics > p {
+.subtitle {
     color: #888;
     margin-bottom: 35px;
 }
 
-.price-container, .insight-container, .portfolio-summary {
+.price-container,
+.insight-container,
+.portfolio-summary {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
     margin-top: 35px;
 }
 
-.price-card, .insight-container div, .portfolio-summary div {
+.price-card,
+.insight-container div,
+.portfolio-summary div,
+.market-card {
     background: #151515;
-    padding: 35px 20px;
+    padding: 30px 20px;
     border: 1px solid #292929;
     border-radius: 12px;
     transition: 0.3s;
 }
 
-.price-card:hover, .insight-container div:hover {
+.price-card:hover,
+.insight-container div:hover,
+.market-card:hover {
     border-color: #d4af37;
-    transform: translateY(-6px);
+    transform: translateY(-5px);
 }
 
-.price-card h3 { color: #aaa; margin-bottom: 20px; }
+.price-card h3 {
+    color: #aaa;
+    margin-bottom: 20px;
+}
 
 .price-card h2 {
     color: #d4af37;
     font-size: 28px;
 }
 
-.price-card p, .insight-container p {
+.price-card p,
+.insight-container p {
     color: #888;
     margin-top: 12px;
     font-size: 13px;
@@ -129,19 +156,46 @@ section h2 {
     border: 1px solid #292929;
     border-radius: 12px;
     padding: 25px;
-    max-width: 950px;
+    max-width: 1000px;
     margin: auto;
-    height: 350px;
+    height: 360px;
 }
 
-.calculator { background: #111; }
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 25px auto 0;
+}
 
-.calculator p, .portfolio > p {
+.market-card span {
+    color: #999;
+    font-size: 13px;
+}
+
+.market-card h3 {
+    color: #d4af37;
+    margin: 15px 0;
+}
+
+.market-card p {
+    color: #888;
+    font-size: 12px;
+}
+
+.calculator {
+    background: #111;
+}
+
+.calculator p,
+.portfolio > p {
     color: #aaa;
     margin: 15px 0 30px;
 }
 
-input, select {
+input,
+select {
     padding: 15px;
     margin: 8px;
     background: #202020;
@@ -153,13 +207,18 @@ input, select {
 }
 
 button {
-    padding: 14px 30px;
+    padding: 14px 25px;
     background: #d4af37;
     color: #090909;
     border: none;
     border-radius: 6px;
     font-weight: 700;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #f0cb56;
 }
 
 .calculator button {
@@ -181,15 +240,51 @@ button {
     margin: auto;
 }
 
-.portfolio-form button { margin: 10px; }
+.portfolio-summary {
+    grid-template-columns: repeat(4, 1fr);
+}
 
 .portfolio-summary h3 {
     color: #aaa;
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 15px;
 }
 
-.portfolio-summary h2 { color: #d4af37; }
+.portfolio-summary h2 {
+    color: #d4af37;
+    font-size: 22px;
+}
+
+.profit {
+    color: #4ade80 !important;
+}
+
+.loss {
+    color: #f87171 !important;
+}
+
+.portfolio-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 35px;
+}
+
+.chart-box {
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.chart-box h3 {
+    margin-bottom: 20px;
+}
+
+.small-chart {
+    height: 280px;
+    position: relative;
+}
 
 .investment-list {
     background: #151515;
@@ -200,17 +295,19 @@ button {
     overflow-x: auto;
 }
 
-.investment-list h3 { margin-bottom: 20px; }
+.investment-list h3 {
+    margin-bottom: 20px;
+}
 
 .investment-row {
     display: flex;
     justify-content: space-between;
     gap: 15px;
+    align-items: center;
     padding: 15px;
     border-bottom: 1px solid #333;
     color: #ccc;
     text-align: left;
-    align-items: center;
 }
 
 .investment-row button {
@@ -219,8 +316,9 @@ button {
     color: white;
 }
 
-.profit { color: #4ade80; }
-.loss { color: #f87171; }
+.insight-container h3 {
+    margin-top: 15px;
+}
 
 footer {
     padding: 25px;
@@ -231,7 +329,7 @@ footer {
     line-height: 2;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 900px) {
     header {
         flex-direction: column;
         gap: 20px;
@@ -242,14 +340,30 @@ footer {
         justify-content: center;
     }
 
-    .price-container, .insight-container, .portfolio-summary {
+    .portfolio-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 650px) {
+    .price-container,
+    .insight-container,
+    .market-grid,
+    .portfolio-charts,
+    .portfolio-summary {
         grid-template-columns: 1fr;
     }
 
-    .hero { padding: 75px 15px; }
+    .hero {
+        padding: 75px 15px;
+    }
 
     .investment-row {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .chart-container {
+        height: 280px;
     }
 }
